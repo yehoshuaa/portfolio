@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projecten</title>
+<style>
+
+:root {
+    --green-main: #3f6b4b;
+    --green-dark: #2f4f3a;
+    --brown-soft: #5a4332;
+    --card-bg: rgba(248, 244, 237, 0.92);
+    --border-soft: #d2c8b8;
+    --text-main: #1f1f1a;
+    --shadow-soft: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-main);
+
+    background:
+        linear-gradient(rgba(20,25,20,0.75), rgba(20,25,20,0.75)),
+        url("./fotos/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+
+header {
+    background: rgba(26, 29, 24, 0.88);
+    backdrop-filter: blur(6px);
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+header a {
+    color: #f3eee4;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+header a:hover {
+    background: rgba(63,107,75,0.28);
+}
+
+/* PAGE LAYOUT */
+
+.page {
+    padding: 50px;
+    max-width: 950px;
+}
+
+/* INTRO BOX */
+
+.intro-box {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 30px;
+    margin-bottom: 40px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+/* DATAPUNTEN */
+
+.datapunt-container {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.datapunt {
+    background: var(--card-bg);
+    border: 1px solid var(--border-soft);
+    border-radius: 18px;
+    overflow: visible;
+    transition: all 0.35s ease;
+    width: 260px;
+    min-height: 70px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    position: relative;
+}
+
+.datapunt-header {
+    padding: 22px;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: Georgia, "Times New Roman", serif;
+    transition: 0.25s ease;
+}
+
+.datapunt-header:hover {
+    background: rgba(63,107,75,0.12);
+}
+
+.datapunt-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 22px;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+/* ACTIVE */
+
+.datapunt.active {
+    width: 100%;
+    border-color: var(--green-main);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.datapunt.active .datapunt-header {
+    background: linear-gradient(90deg, var(--green-main), var(--green-dark));
+    color: #f8f4ed;
+}
+
+.datapunt.active .datapunt-content {
+    max-height: 800px;
+    padding: 22px;
+    opacity: 1;
+}
+
+/* TEXT */
+
+.datapunt-content h3 {
+    margin-top: 0;
+    font-family: Georgia, "Times New Roman", serif;
+}
+
+.datapunt-content p,
+.datapunt-content li {
+    line-height: 1.7;
+    font-size: 16px;
+}
+
+.datapunt-content ul {
+    padding-left: 22px;
+}
+
+/* SCREENSHOT buiten box */
+
+.screenshot {
+    position: absolute;
+    top: 100px;
+    left: calc(100% + 45px);
+    width: 320px;
+    height: auto;
+    opacity: 0;
+    transition: 0.4s ease;
+    pointer-events: none;
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+}
+
+.screenshot-large{
+    width:510px;
+}
+
+.datapunt.active .screenshot {
+    opacity: 1;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* PDF MODAL */
+
+.pdf-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 30px;
+}
+
+.pdf-overlay.active {
+    display: flex;
+}
+
+.pdf-modal {
+    position: relative;
+    width: min(1100px, 92vw);
+    height: min(85vh, 900px);
+    background: rgba(248, 244, 237, 0.98);
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 18px 45px rgba(0,0,0,0.35);
+    border: 1px solid rgba(255,255,255,0.15);
+}
+
+.pdf-close {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #111;
+    color: white;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.pdf-close:hover {
+    background: #222;
+}
+
+.pdf-frame {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1300px) {
+    .screenshot {
+        width: 260px;
+        left: calc(100% + 25px);
+    }
+}
+
+</style>
+</head>
+<body>
+
+    <header>
+        <a href="projecten.html">Projecten</a>
+        <a href="vaardigheden.html">Vaardigheden</a>
+        <a href="overmij.html">Over mij</a>
+    </header>
+
+    <main class="page">
+        <div class="intro-box">
+            <h1>Projecten</h1>
+            <p>
+                Op deze pagina staan mijn datapunten. Klik op een datapunt om te zien
+                wat ik heb gedaan, wat ik heb geleerd en wat het resultaat was.
+            </p>
+        </div>
+
+        <div class="datapunt-container">
+
+            <!-- Datapunt 2 -->
+            <div class="datapunt" onclick="toggleDatapunt(this)">
+                <div class="datapunt-header">Datapunt 2</div>
+                <div class="datapunt-content">
+                    <h3>Wat heb ik gedaan?</h3>
+                    <p>
+                        Ik heb samen met mijn projectgroep een benchmarkanalyse uitgevoerd naar applicaties voor het reserveren van vergaderruimtes.
+                        We hebben verschillende systemen vergeleken op functionaliteiten, toegankelijkheid en gebruikerservaring. Op basis hiervan hebben we een advies opgesteld voor het ontwerp van onze eigen mobiele applicatie.
+                    </p>
+
+                    <h3>Wat heb ik geleerd?</h3>
+                    <p>
+                        Ik heb geleerd hoe belangrijk het is om bestaande oplossingen kritisch te analyseren voordat je zelf ontwerpt.
+                        Door systemen te vergelijken kreeg ik beter inzicht in gebruiksvriendelijke ontwerpkeuzes en mogelijke verbeterpunten.
+                    </p>
+                </div>
+
+                    <img src="./fotos/datapunt2.png" class="screenshot" alt="Screenshot datapunt 2"
+                     onclick="openPdfModal(event, './pdf/datapunt2.pdf')">
+            </div>
+
+            <!-- Datapunt 3 -->
+            <div class="datapunt" onclick="toggleDatapunt(this)">
+                <div class="datapunt-header">Datapunt 3</div>
+                <div class="datapunt-content">
+                    <h3>Wat heb ik gedaan?</h3>
+                    <p>
+                        Samen met mijn projectgroep heb ik een design brief opgesteld voor een mobiele applicatie waarmee medewerkers vergaderruimtes kunnen reserveren.
+                        We hebben de doelgroep en het probleem geanalyseerd en de belangrijkste projectkaders vastgelegd, zoals doelen, functionaliteiten en planning.
+                    </p>
+
+                    <h3>Wat heb ik geleerd?</h3>
+                    <p>
+                        Ik heb geleerd hoe belangrijk het is om vooraf duidelijke ontwerpdoelen en randvoorwaarden te formuleren.
+                        Dit helpt om gerichter te ontwerpen en voorkomt misverstanden binnen een projectteam.
+                    </p>
+                </div>
+
+                <img src="./fotos/datapunt3.png" class="screenshot" alt="Screenshot datapunt 3"
+                     onclick="openPdfModal(event, './pdf/datapunt3.pdf')">
+            </div>
+
+            <!-- Datapunt 4 -->
+            <div class="datapunt" onclick="toggleDatapunt(this)">
+                <div class="datapunt-header">Datapunt 4</div>
+                <div class="datapunt-content">
+                    <h3>Wat heb ik gedaan?</h3>
+                    <p>
+                        Tijdens dit datapunt heb ik individueel meerdere concepten uitgewerkt in low- en mid-fidelity wireframes in Figma.
+                        Ik heb gebruikersflows ontworpen, feedback verzameld van medestudenten en mijn ontwerp iteratief verbeterd.
+                    </p>
+
+                    <h3>Wat heb ik geleerd?</h3>
+                    <p>
+                        Ik heb geleerd hoe wireframes helpen om ideeën visueel te testen en structuur aan te brengen in een applicatie.
+                        Door feedback te verwerken kreeg ik beter inzicht in gebruiksvriendelijkheid en visuele hiërarchie.
+                    </p>
+                </div>
+
+                <img src="./fotos/datapunt4.png" class="screenshot screenshot-large" alt="Screenshot datapunt 4"
+                     onclick="openPdfModal(event, './pdf/datapunt4.pdf')">
+            </div>
+
+            <!-- Datapunt 5 -->
+            <div class="datapunt" onclick="toggleDatapunt(this)">
+                <div class="datapunt-header">Datapunt 5</div>
+                <div class="datapunt-content">
+                    <h3>Wat heb ik gedaan?</h3>
+                    <p>
+                        Samen met mijn projectgroep heb ik een high-fidelity prototype ontwikkeld op basis van onze eerdere wireframes en ontvangen feedback.
+                        We hebben het ontwerp responsief uitgewerkt, getest met gebruikers en het eindprototype gepresenteerd aan stakeholders.
+                    </p>
+
+                    <h3>Wat heb ik geleerd?</h3>
+                    <p>
+                        Ik heb geleerd hoe belangrijk samenwerking en iteratief testen zijn bij het ontwikkelen van een digitaal product.
+                        Daarnaast heb ik ervaring opgedaan met het visueel uitwerken en presenteren van een compleet ontwerpconcept.
+                    </p>
+                </div>
+
+                <img src="./fotos/datapunt5.png"  class="screenshot screenshot-large" alt="Screenshot datapunt 5"
+                     onclick="openPdfModal(event, './pdf/datapunt5.pdf')">
+            </div>
+
+        </div>
+    </main>
+
+    <!-- PDF modal -->
+    <div class="pdf-overlay" id="pdfOverlay" onclick="closePdfModal(event)">
+        <div class="pdf-modal">
+            <button class="pdf-close" onclick="closePdfModal()">×</button>
+            <iframe id="pdfFrame" class="pdf-frame" src=""></iframe>
+        </div>
+    </div>
+
+    <script>
+        function toggleDatapunt(selected) {
+            const allDatapunten = document.querySelectorAll('.datapunt');
+
+            allDatapunten.forEach(item => {
+                if (item !== selected) {
+                    item.classList.remove('active');
+                }
+            });
+
+            selected.classList.toggle('active');
+        }
+
+        function openPdfModal(event, pdfFile) {
+            event.stopPropagation();
+
+            const overlay = document.getElementById("pdfOverlay");
+            const frame = document.getElementById("pdfFrame");
+
+            frame.src = pdfFile;
+            overlay.classList.add("active");
+        }
+
+        function closePdfModal(event) {
+            const overlay = document.getElementById("pdfOverlay");
+            const frame = document.getElementById("pdfFrame");
+
+            if (!event || event.target === overlay || event.target.classList.contains("pdf-close")) {
+                overlay.classList.remove("active");
+                frame.src = "";
+            }
+        }
+
+        document.addEventListener("keydown", function(e) {
+            if (e.key === "Escape") {
+                closePdfModal();
+            }
+        });
+    </script>
+
+</body>
+</html>

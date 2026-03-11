@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vaardigheden</title>
+
+<style>
+
+:root {
+    --green-main: #3f6b4b;
+    --green-dark: #2f4f3a;
+    --card-bg: rgba(248, 244, 237, 0.92);
+    --border-soft: #d2c8b8;
+    --text-main: #1f1f1a;
+    --shadow-soft: 0 10px 25px rgba(0,0,0,0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--text-main);
+
+    background:
+        linear-gradient(rgba(20,25,20,0.75), rgba(20,25,20,0.75)),
+        url("./fotos/background.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* HEADER */
+
+header {
+    background: rgba(26, 29, 24, 0.88);
+    backdrop-filter: blur(6px);
+    padding: 22px;
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+header a {
+    color: #f3eee4;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 18px;
+    border-radius: 10px;
+    transition: 0.25s ease;
+}
+
+header a:hover {
+    background: rgba(63,107,75,0.28);
+}
+
+/* PAGE */
+
+.page {
+    padding: 50px;
+    max-width: 950px;
+}
+
+/* BOX */
+
+.skills-box {
+    background: var(--card-bg);
+    border-radius: 18px;
+    padding: 35px;
+    border: 1px solid var(--border-soft);
+    box-shadow: var(--shadow-soft);
+}
+
+.skills-box h1 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 38px;
+}
+
+.skills-box h2 {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    color: var(--green-dark);
+}
+
+.skills-box p {
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.skills-box ul {
+    padding-left: 22px;
+}
+
+.skills-box li {
+    line-height: 1.8;
+    margin-bottom: 6px;
+    font-size: 16px;
+}
+
+.highlight {
+    font-weight: bold;
+    color: var(--green-dark);
+}
+
+</style>
+</head>
+<body>
+
+<header>
+    <a href="projecten.html">Projecten</a>
+    <a href="vaardigheden.html">Vaardigheden</a>
+    <a href="overmij.html">Over mij</a>
+</header>
+
+<main class="page">
+    <section class="skills-box">
+
+        <h1>Vaardigheden</h1>
+
+        <p>
+            Tijdens mijn studie en projecten ontwikkel ik mij op zowel technisch als analytisch vlak.
+            Ik werk graag aan opdrachten waarbij ik problemen kan analyseren en oplossingen kan ontwerpen
+            die logisch, gestructureerd en gebruiksvriendelijk zijn.
+        </p>
+
+        <h2>Programmeervaardigheden</h2>
+        <ul>
+            <li><span class="highlight">HTML & CSS</span> – opbouwen van gestructureerde en overzichtelijke interfaces</li>
+            <li><span class="highlight">JavaScript (basis)</span> – interactieve functionaliteiten toevoegen aan webpagina’s</li>
+            <li><span class="highlight">C#</span> – werken met basislogica, console- en eenvoudige applicaties</li>
+            <li><span class="highlight">Python</span> – werken met basislogica.</li>
+            <li><span class="highlight">SQL</span> – begrijpen en toepassen van database-structuren en queries</li>
+        </ul>
+
+        <h2>UI / UX & Design</h2>
+        <ul>
+            <li>Wireframes ontwerpen in Figma</li>
+            <li>Gebruikersflows analyseren en verbeteren</li>
+            <li>Werken met designprincipes zoals hiërarchie, witruimte en balans</li>
+            <li>Feedback verwerken om ontwerpen iteratief te verbeteren</li>
+        </ul>
+
+        <h2>Analytische vaardigheden</h2>
+        <ul>
+            <li>Problemen structureren en stap voor stap oplossen</li>
+            <li>Benchmarkonderzoek uitvoeren en conclusies trekken</li>
+            <li>Informatie kritisch analyseren en vertalen naar ontwerpkeuzes</li>
+            <li>Nadenken over gebruiksvriendelijkheid en systeemlogica</li>
+        </ul>
+
+        <h2>Samenwerking & werkhouding</h2>
+        <ul>
+            <li>Werken in projectgroepen en taken verdelen</li>
+            <li>Feedback geven en ontvangen</li>
+            <li>Zelfstandig leren en nieuwe technieken onderzoeken</li>
+            <li>Doorzettingsvermogen bij het oplossen van technische problemen</li>
+        </ul>
+
+        <h2>Interesses die mijn ontwikkeling ondersteunen</h2>
+        <p>
+            Ik houd mij bezig met lezen, technologie en het analyseren van systemen en ideeën.
+            Deze interesses helpen mij om kritisch te denken en gestructureerd te werken aan projecten.
+        </p>
+
+    </section>
+</main>
+
+</body>
+</html>

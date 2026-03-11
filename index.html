@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mijn Portfolio</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background:
+        linear-gradient(180deg, #1b2a1f 0%, #243c2a 100%);
+    color:#e8e8e8;
+}
+
+/* HEADER */
+
+header{
+    background:rgba(0,0,0,0.35);
+    backdrop-filter: blur(6px);
+    padding:22px;
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    border-bottom:1px solid rgba(255,255,255,0.08);
+}
+
+header a{
+    color:#e6e6e6;
+    text-decoration:none;
+    font-size:18px;
+    padding:10px 22px;
+    border-radius:8px;
+    transition:0.25s;
+}
+
+header a:hover{
+    background:#4f7a55;
+}
+
+/* HERO */
+
+.hero{
+    height:75vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+    padding:40px;
+}
+
+.hero h1{
+    font-size:52px;
+    font-weight:600;
+    margin-bottom:12px;
+    letter-spacing:1px;
+}
+
+.hero p{
+    font-size:20px;
+    color:#cfd8cf;
+    max-width:600px;
+    line-height:1.6;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <a href="projecten.html">Projecten</a>
+    <a href="vaardigheden.html">Vaardigheden</a>
+    <a href="overmij.html">Over mij</a>
+</header>
+
+<section class="hero">
+    <h1>Mijn Portfolio</h1>
+    <p>Software developer in opleiding</p>
+</section>
+
+</body>
+</html>
