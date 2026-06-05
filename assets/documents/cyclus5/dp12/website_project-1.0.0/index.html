@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Lost Memories - A-Frame Jungle Path</title>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- A-Frame -->
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+</head>
+
+<body>
+  <main class="app">
+
+    <!-- START SCREEN -->
+    <section class="screen start active" id="startScreen">
+      <button class="settings start-settings" id="startSettingsBtn">⚙</button>
+
+      <div class="start-card hf-start">
+        <div class="start-image"></div>
+        <button class="hf-start-btn" id="startBtn">Start</button>
+      </div>
+    </section>
+
+    <!-- GAME SCREEN -->
+    <section class="screen game" id="gameScreen">
+      <header class="ui">
+        <div class="counter">
+          <span>Memory fragments</span>
+          <strong id="counter">0 / 3</strong>
+        </div>
+
+        <button class="settings" id="settingsBtn">⚙</button>
+      </header>
+
+      <div class="aframe-game">
+        <a-scene
+          id="jungleScene"
+          embedded
+          cursor="rayOrigin: mouse"
+          raycaster="objects: .clickable"
+          renderer="colorManagement: true; antialias: true"
+          vr-mode-ui="enabled: false">
+
+          <a-assets>
+            <!-- Background -->
+            <img id="forestWallImg" src="images/junglebackground.jpg" alt="">
+
+            <!-- 3D models -->
+            <a-asset-item id="tree1Model" src="trees/tree%201.glb"></a-asset-item>
+            <a-asset-item id="tree2Model" src="trees/tree%202.glb"></a-asset-item>
+            <a-asset-item id="tree3Model" src="trees/tree%203.glb"></a-asset-item>
+
+            <a-asset-item id="spearModel" src="trees/spear.glb"></a-asset-item>
+            <a-asset-item id="teaSetModel" src="trees/tea_set.glb"></a-asset-item>
+            <a-asset-item id="bananasModel" src="trees/bananas.glb"></a-asset-item>
+
+            <a-asset-item id="grassModel" src="trees/gras.glb"></a-asset-item>
+            <a-asset-item id="stoneModel" src="trees/stone.glb"></a-asset-item>
+            <a-asset-item id="stoneBigModel" src="trees/stone%20big.glb"></a-asset-item>
+            <a-asset-item id="trunkModel" src="trees/tree%20trunk.glb"></a-asset-item>
+            <a-asset-item id="miniTreeModel" src="trees/tree%20mini%201.glb"></a-asset-item>
+            <a-asset-item id="tentModel" src="trees/tent.glb"></a-asset-item>
+            <a-asset-item id="janeModel" src="trees/jane_porter.glb"></a-asset-item>          </a-assets>
+
+          <!-- Camera -->
+          <a-entity id="cameraRig" position="0 1.7 8">
+            <a-camera
+              look-controls="enabled: false"
+              wasd-controls="enabled: false">
+            </a-camera>
+          </a-entity>
+
+          <!-- Lights -->
+          <a-light
+            type="ambient"
+            color="#ffffff"
+            intensity="0.95">
+          </a-light>
+
+          <a-light
+            type="directional"
+            position="4 10 8"
+            intensity="1.35">
+          </a-light>
+
+          <!-- Blue sky -->
+          <a-sky color="#87cfff"></a-sky>
+
+          <!-- Forest background corridor -->
+          <a-entity id="forestBackgroundGroup">
+            <!-- Achterwand -->
+            <a-plane
+              id="forestWallBack"
+              src="#forestWallImg"
+              position="0 13 -105"
+              rotation="0 0 0"
+              width="120"
+              height="46">
+            </a-plane>
+
+            <!-- Linkerwand -->
+            <a-plane
+              id="forestWallLeft"
+              src="#forestWallImg"
+              position="-35 13 -42"
+              rotation="0 80 0"
+              width="135"
+              height="46">
+            </a-plane>
+
+            <!-- Rechterwand -->
+            <a-plane
+              id="forestWallRight"
+              src="#forestWallImg"
+              position="35 13 -42"
+              rotation="0 -80 0"
+              width="135"
+              height="46">
+            </a-plane>
+          </a-entity>
+
+          <!-- Ground -->
+          <a-plane
+            id="ground"
+            position="0 0 -42"
+            rotation="-90 0 0"
+            width="70"
+            height="132"
+            color="#0c3518"
+            material="roughness: 1">
+          </a-plane>
+
+          <!-- Path -->
+          <a-plane
+            id="path"
+            position="0 0.035 -42"
+            rotation="-90 0 0"
+            width="4.8"
+            height="132"
+            color="#b99542"
+            material="roughness: 1">
+          </a-plane>
+
+          <!-- Path dots -->
+          <a-entity id="pathDots"></a-entity>
+
+          <!-- Generated objects from JS -->
+          <a-entity id="aframeForest"></a-entity>
+          <a-entity id="aframeDetails"></a-entity>
+
+          <!-- End destination -->
+          <a-entity
+            id="destinationTent"
+            gltf-model="#tentModel"
+            position="0 0 -92"
+            rotation="0 180 0"
+            scale="2.25 2.25 2.25">
+          </a-entity>
+
+          <a-entity
+          id="janePorter"
+          gltf-model="#janeModel"
+          position="-8 0 -86"
+          rotation="0 200 0"
+          scale="1.0 1.0 1.0">
+          </a-entity>
+
+          <!-- Puzzle 1 = spear -->
+          <a-entity
+            id="hotspotOne"
+            class="clickable puzzle-object"
+            gltf-model="#spearModel"
+            position="-3.8 0.55 -4"
+            rotation="0 35 0"
+            scale="1.2 1.2 1.2"
+            animation="property: position; dir: alternate; dur: 1300; easing: easeInOutSine; loop: true; to: -3.8 0.8 -4"
+            data-puzzle="one">
+
+            <a-torus
+              class="puzzle-aura"
+              position="0 -0.35 0"
+              rotation="90 0 0"
+              radius="0.9"
+              radius-tubular="0.025"
+              material="color: #ffd84a; transparent: true; opacity: 0.35">
+            </a-torus>
+
+            <a-entity class="puzzle-particles"></a-entity>
+          </a-entity>
+
+
+          <!-- Puzzle 2 = tea set -->
+          <a-entity
+            id="hotspotTwo"
+            class="clickable puzzle-object locked"
+            gltf-model="#teaSetModel"
+            position="-3.8 0.45 -31"
+            rotation="0 120 0"
+            scale="0.4 0.4 0.4"
+            animation="property: position; dir: alternate; dur: 1300; easing: easeInOutSine; loop: true; to: -3.8 0.7 -31"
+            data-puzzle="two">
+
+            <a-torus
+              class="puzzle-aura"
+              position="0 -0.28 0"
+              rotation="90 0 0"
+              radius="6.9"
+              radius-tubular="0.025"
+              material="color: #ffd84a; transparent: true; opacity: 0.12">
+            </a-torus>
+
+            <a-entity class="puzzle-particles"></a-entity>
+          </a-entity>
+
+
+          <!-- Puzzle 3 = bananas -->
+          <a-entity
+            id="hotspotThree"
+            class="clickable puzzle-object locked"
+            gltf-model="#bananasModel"
+            position="-3.8 0.45 -58"
+            rotation="0 220 0"
+            scale="0.4 0.4 0.4"
+            animation="property: position; dir: alternate; dur: 1300; easing: easeInOutSine; loop: true; to: -3.8 0.7 -58"
+            data-puzzle="three">
+
+            <a-torus
+              class="puzzle-aura"
+              position="0 -0.28 0"
+              rotation="90 0 0"
+              radius="0.9"
+              radius-tubular="0.025"
+              material="color: #ffd84a; transparent: true; opacity: 0.12">
+            </a-torus>
+
+            <a-entity class="puzzle-particles"></a-entity>
+          </a-entity>
+        </a-scene>
+
+        <button class="path-arrow aframe-arrow" id="pathArrow" disabled>
+          ↑<small>Locked</small>
+        </button>
+      </div>
+
+      <aside class="hint">
+        <h2 id="hintTitle">Jungle path</h2>
+        <p id="hintText">
+          Je staat op het pad. Klik op Puzzle 1 om het eerste memory fragment vrij te spelen.
+        </p>
+      </aside>
+    </section>
+
+    <!-- PUZZLE MODAL -->
+    <section class="modal hidden" id="puzzleModal">
+      <div class="modal-card">
+        <button class="close" id="closeBtn">×</button>
+
+        <p class="kicker" id="puzzleType">Puzzle</p>
+        <h2 id="puzzleTitle">Solve the puzzle</h2>
+        <p id="puzzleText"></p>
+
+        <div class="puzzle-preview" id="preview"></div>
+
+        <button class="gold-btn" id="solveBtn">Puzzle oplossen</button>
+      </div>
+    </section>
+
+    <!-- MEMORY MODAL -->
+    <section class="modal hidden" id="memoryModal">
+      <div class="modal-card memory">
+        <p class="kicker">Memory unlocked</p>
+        <h2 id="memoryTitle"></h2>
+        <p id="memoryText"></p>
+
+        <div class="memory-video-wrap">
+          <video id="memoryVideoOne" class="memory-video" playsinline preload="metadata">
+            <source src="videos/memory1.mp4" type="video/mp4">
+          </video>
+
+          <video id="memoryVideoTwo" class="memory-video" playsinline preload="metadata">
+            <source src="videos/memory2.mp4" type="video/mp4">
+          </video>
+
+          <video id="memoryVideoThree" class="memory-video" playsinline preload="metadata">
+            <source src="videos/memory3.mp4" type="video/mp4">
+          </video>
+        </div>
+
+        <button class="gold-btn" id="continueBtn">Verder</button>
+      </div>
+    </section>
+
+    <!-- SETTINGS MODAL -->
+    <section class="modal hidden" id="settingsModal">
+      <div class="modal-card settings-card">
+        <button class="close" id="closeSettingsBtn">×</button>
+
+        <p class="kicker">Settings</p>
+        <h2>Graphics</h2>
+        <p>Kies hoeveel 3D-objecten je wilt tonen. Lager is beter voor performance.</p>
+
+        <div class="quality-options">
+          <button class="quality-btn" data-quality="none">
+            <strong>Super laag</strong>
+            <span>Geen bomen</span>
+          </button>
+
+          <button class="quality-btn" data-quality="low">
+            <strong>Low</strong>
+            <span>Weinig bomen</span>
+          </button>
+
+          <button class="quality-btn" data-quality="normal">
+            <strong>Normal</strong>
+            <span>Standaard</span>
+          </button>
+
+          <button class="quality-btn" data-quality="high">
+            <strong>High</strong>
+            <span>Veel bomen</span>
+          </button>
+
+          <button class="quality-btn" data-quality="ultra">
+            <strong>Super mooi</strong>
+            <span>Extra details</span>
+          </button>
+        </div>
+
+        <div class="timer-setting">
+          <label>
+            <input type="checkbox" id="timerToggle">
+            Timer aan
+          </label>
+          <p>Als timer aan staat, wordt je tijd aan het einde getoond.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- END SCREEN -->
+    <section class="screen end" id="endScreen">
+      <div class="end-card hf-end">
+        <div class="end-image"></div>
+
+        <div class="end-banner">
+          <p>“In the end, love was the only way forward”</p>
+          <h1>The end</h1>
+        </div>
+
+        <p class="final-time hidden" id="finalTime"></p>
+
+        <button class="hf-menu-btn" id="menuBtn">Menu</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

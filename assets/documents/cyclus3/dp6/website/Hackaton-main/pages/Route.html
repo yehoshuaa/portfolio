@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-translate="routeBrandTitle">Campus Navigation</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/routestyle.css" />
+</head>
+<body>
+  <div class="route-page-overlay" id="routePageOverlay"></div>
+
+  <nav class="route-page-menu" id="routePageMenu" aria-label="Hoofdmenu">
+    <div class="route-page-menu-top">
+      <button class="route-page-close-menu-btn" id="routePageCloseMenuBtn" type="button" aria-label="Sluit menu">×</button>
+    </div>
+
+    <ul class="route-page-menu-list">
+      <li><a href="HomePagina.html" data-translate="routeMenuHome">Home</a></li>
+      <li><a href="HomePagina.html?tab=map" data-translate="routeMenuMap">Plattegrond</a></li>
+      <li><a href="HomePagina.html?tab=rooster" data-translate="routeMenuSchedule">Rooster</a></li>
+      <li><a href="profile.html" data-translate="routeMenuProfile">Profiel</a></li>
+    </ul>
+  </nav>
+
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <div>
+          <h1 data-translate="routeBrandTitle">Campus Navigation</h1>
+          <p data-translate="routeBrandSubtitle">Route viewer</p>
+        </div>
+      </div>
+
+      <section class="sidebar-card">
+        <h2 data-translate="routeDetailsTitle">Route Details</h2>
+        <div class="info-list">
+          <div class="info-item">
+            <span class="label" data-translate="routeBuilding">Gebouw</span>
+            <span class="value" id="buildingLabel">Circus</span>
+          </div>
+          <div class="info-item">
+            <span class="label" data-translate="routeFloor">Verdieping</span>
+            <span class="value" id="floorLabel">AC1</span>
+          </div>
+          <div class="info-item">
+            <span class="label" data-translate="routeRoom">Lokaal</span>
+            <span class="value" id="roomLabel">AC1.20</span>
+          </div>
+          <div class="info-item">
+            <span class="label" data-translate="routeStart">Start</span>
+            <span class="value" id="startLabel">Nog niet gestart</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="sidebar-card">
+        <h2 data-translate="routeTypesTitle">Route types</h2>
+        <div class="route-type-list">
+          <button class="route-type-btn active" data-route-type="main" type="button" data-translate="routeMain">Hoofdroute</button>
+          <button class="route-type-btn" data-route-type="accessible" type="button" data-translate="routeAccessible">Toegankelijke route</button>
+          <button class="route-type-btn" data-route-type="quiet" type="button" data-translate="routeQuiet">Stille route</button>
+        </div>
+      </section>
+
+      <section class="sidebar-card legend-card">
+        <h2 data-translate="routeLegendTitle">Legenda</h2>
+        <div class="legend-row">
+          <span class="legend-line main"></span>
+          <span data-translate="routeLegendMain">Hoofdroute</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-line accessible"></span>
+          <span data-translate="routeLegendAccessible">Toegankelijk</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-line quiet"></span>
+          <span data-translate="routeLegendQuiet">Stille route</span>
+        </div>
+        <div class="legend-row">
+          <span class="legend-dot"></span>
+          <span data-translate="routeLegendStart">Startpunt</span>
+        </div>
+      </section>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="route-page-hamburger-btn" id="routePageMenuBtn" type="button" aria-label="Open menu">☰</button>
+          <button class="back-btn" type="button" onclick="history.back()"><</button>
+          <div>
+            <div class="page-kicker" data-translate="routePageKicker">Navigatie</div>
+            <h2 id="pageTitle">AC1.20</h2>
+          </div>
+        </div>
+      </header>
+
+      <section class="route-panel">
+        <div class="map-toolbar">
+          <div class="status-chip" id="statusChip">Start</div>
+
+          <div class="mobile-route-switcher">
+            <select id="mobileRouteType">
+              <option value="main" data-translate="routeMain">Hoofdroute</option>
+              <option value="accessible" data-translate="routeAccessible">Toegankelijke route</option>
+              <option value="quiet" data-translate="routeQuiet">Stille route</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="canvas-area">
+          <div class="canvas-controls">
+            <button class="canvas-control-btn" id="zoomOutBtn" type="button" data-translate="routeZoomOut">- Uitzoomen</button>
+            <button class="canvas-control-btn" id="centerBtn" type="button" data-translate="routeCenter">Centreren</button>
+            <button class="canvas-control-btn" id="zoomInBtn" type="button" data-translate="routeZoomIn">+ Inzoomen</button>
+          </div>
+
+          <div class="canvas-wrapper">
+            <canvas id="mapCanvas" class="route-canvas"></canvas>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button class="action-btn primary" id="startRouteBtn" type="button" data-translate="routeStartButton">Start route</button>
+          <button class="action-btn secondary" id="toggleAltRoutesBtn" type="button" data-translate="routeToggleButton">Wissel alternatieve route</button>
+          <button class="action-btn ghost" id="arrivedBtn" type="button" data-translate="routeArrivedButton">Ik ben er!</button>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="modal hidden" id="arrivalModal">
+    <div class="modal-card">
+      <h3 data-translate="routeArrivedTitle">Aangekomen</h3>
+      <p class="modal-room" id="modalRoomText"></p>
+      <p class="modal-course" id="modalCourseText"></p>
+      <div class="tenor-gif-embed" data-postid="5054843775616689213" data-share-method="host" data-aspect-ratio="1" data-width="100%"><a href="https://tenor.com/view/fast-cat-cat-excited-jumping-gif-5054843775616689213">Fast Cat Cat Excited GIF</a>from <a href="https://tenor.com/search/fast+cat-gifs">Fast Cat GIFs</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+      <div class="yippee" data-translate="routeGoodWork">Goed werk</div>
+      <button class="action-btn primary modal-btn" id="closeModalBtn" type="button" data-translate="routeArrivedClose">Sluiten</button>
+    </div>
+  </div>
+
+  <script src="../js/language.js"></script>
+  <script src="../js/profile-preferences.js"></script>
+  <script src="../js/route-state-helpers.js"></script>
+  <script src="../js/routescript.js"></script>
+  <script src="../js/lesson-notifications.js"></script>
+</body>
+</html>
