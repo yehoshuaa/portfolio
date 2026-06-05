@@ -1,0 +1,885 @@
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #222;
+        }
+
+        body.large-text h1,
+        body.large-text h2,
+        body.large-text h3,
+        body.large-text p,
+        body.large-text span,
+        body.large-text button,
+        body.large-text label,
+        body.large-text input,
+        body.large-text select {
+            font-size: 1.08em;
+        }
+
+        body.large-text .hamburger-btn,
+        body.large-text .page-title {
+            font-size: 1.60em !important;
+        }
+
+        body.high-contrast {
+            background: #000;
+            color: #fff;
+        }
+
+        body.high-contrast header,
+        body.high-contrast main,
+        body.high-contrast .side-menu,
+        body.high-contrast .lesson-card,
+        body.high-contrast .location-modal,
+        body.high-contrast .search-box,
+        body.high-contrast .building-select,
+        body.high-contrast .tab-btn,
+        body.high-contrast .dropdown,
+        body.high-contrast .modal-overlay {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #fff !important;
+        }
+
+        body.high-contrast .menu-list a,
+        body.high-contrast .page-title,
+        body.high-contrast .lesson-info,
+        body.high-contrast .lesson-title,
+        body.high-contrast .location-option-btn,
+        body.high-contrast .cancel-btn,
+        body.high-contrast .hamburger-btn,
+        body.high-contrast .close-menu-btn {
+            color: #fff !important;
+        }
+
+        body.high-contrast .tab-btn,
+        body.high-contrast .location-option-btn,
+        body.high-contrast .cancel-btn,
+        body.high-contrast .search-box,
+        body.high-contrast .building-select,
+        body.high-contrast .hamburger-btn,
+        body.high-contrast .close-menu-btn {
+            background: transparent !important;
+            border: 2px solid #fff !important;
+            box-shadow: none !important;
+        }
+
+        body.high-contrast .building-select option {
+            background: #000 !important;
+            color: #fff !important;
+        }
+
+        body.high-contrast .menu-top,
+        body.high-contrast .menu-list li {
+            border-color: #fff !important;
+        }
+
+        body.high-contrast .lesson-card,
+        body.high-contrast .lesson-card.highlight,
+        body.high-contrast .empty-day {
+            background: transparent !important;
+            border: 2px solid #fff !important;
+            box-shadow: none !important;
+        }
+
+        body.high-contrast .day-title,
+        body.high-contrast .lesson-time {
+            color: #ffd84d !important;
+        }
+
+        body.high-contrast .location-modal {
+            background: #000 !important;
+            border: 2px solid #fff !important;
+            color: #fff !important;
+        }
+
+        body.high-contrast .location-modal h2,
+        body.high-contrast .location-modal-label,
+        body.high-contrast .location-modal-course,
+        body.high-contrast .close-modal-btn {
+            color: #fff !important;
+        }
+
+        body.high-contrast .location-buttons {
+            background: transparent !important;
+            border: none !important;
+        }
+
+        body.high-contrast .location-option-btn {
+            background: transparent !important;
+            color: #fff !important;
+            border: 2px solid #fff !important;
+        }
+
+        body.high-contrast .location-option-btn + .location-option-btn {
+            border-top: none !important;
+            margin-top: 10px;
+        }
+
+        body.high-contrast .menu-list a:hover,
+        body.high-contrast .tab-btn.active,
+        body.high-contrast .location-option-btn:hover,
+        body.high-contrast .cancel-btn:hover {
+            background: #fff !important;
+            color: #000 !important;
+        }
+
+        header {
+            border-bottom: 1px solid #dddddd00;
+            padding: 16px 20px;
+            position: relative;
+            z-index: 10;
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 24px 20px 120px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: auto 1fr auto;
+            align-items: center;
+            gap: 16px;
+            min-height: 56px;
+        }
+
+        .hamburger-btn {
+            background: none;
+            border: none;
+            font-size: 1.60em;
+            cursor: pointer;
+            color: #e66797;
+            line-height: 1;
+            font-weight: 700;
+        }
+
+        .page-title {
+            font-size: 1.60em;
+            font-weight: 700;
+            text-align: center;
+            margin: 0;
+            grid-column: 2;
+        }
+
+        .side-menu {
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 280px;
+            max-width: 50%;
+            height: 100vh;
+            background-color: #d97cab;
+            transition: left 0.3s ease;
+            z-index: 1100;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .side-menu.open {
+            left: 0;
+        }
+
+        .menu-top {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            height: 88px;
+            padding: 0 18px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+        }
+
+        .close-menu-btn {
+            background: none;
+            border: none;
+            font-size: 34px;
+            cursor: pointer;
+            color: #111;
+            line-height: 1;
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .menu-list li {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.35);
+        }
+
+        .menu-list a {
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #111;
+            font-size: 20px;
+            font-weight: 700;
+            padding: 18px 12px;
+            transition: background-color 0.2s ease;
+        }
+
+        .menu-list a:hover {
+            background-color: #f16682;
+        }
+
+        .overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            z-index: 1050;
+        }
+
+        .overlay.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .controls {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px 14px;
+            font-size: 18px;
+            border: 1px solid #aaa;
+            border-radius: 6px;
+        }
+
+        .tab-row {
+            display: flex;
+            width: 100%;
+            max-width: 360px;
+            background-color: #e98ab9;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            background-color: #e98ab9;
+            color: #333;
+        }
+
+        .tab-btn.active {
+            background-color: white;
+            font-weight: bold;
+        }
+
+        .building-select {
+            width: 100%;
+            max-width: 220px;
+            padding: 10px 12px;
+            font-size: 16px;
+            border: 1px solid #bbb;
+            border-radius: 6px;
+            background-color: #fff;
+            cursor: pointer;
+        }
+
+        .content-layout {
+            display: grid;
+            grid-template-columns: 1fr 80px;
+            gap: 16px;
+            align-items: start;
+        }
+
+        .map-section {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 16px;
+            overflow: hidden;
+        }
+
+        .map-toolbar {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .map-tool-btn {
+            padding: 8px 14px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            background-color: #e98ab9;
+            color: #222;
+            cursor: pointer;
+        }
+
+        .map-viewer {
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            background-color: #f7f7f7;
+            touch-action: none;
+            cursor: grab;
+        }
+
+        .map-viewer.dragging {
+            cursor: grabbing;
+        }
+
+        .map-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: auto;
+            max-width: none;
+            height: auto;
+            display: block;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transform-origin: top left;
+            user-select: none;
+            -webkit-user-drag: none;
+            pointer-events: none;
+        }
+
+        .floor-section {
+            border: 1px solid #dddddd00;
+            border-radius: 10px;
+            padding: 16px;
+        }
+
+        .floor-title {
+            font-size: 18px;
+            margin-bottom: 14px;
+        }
+
+        .floor-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .floor-btn {
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #e98ab9;
+            color: #222;
+        }
+
+        .floor-btn.active {
+            background-color: #ff2f2f;
+            color: white;
+        }
+
+        .rooster-content {
+            display: none;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .rooster-content.show {
+            display: block;
+        }
+
+        .map-content.hide {
+            display: none;
+        }
+
+        .corner-decoration {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 280px;
+            height: 280px;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .stripe {
+            position: absolute;
+            right: -300px;
+            bottom: 0;
+            width: 840px;
+            height: 300px;
+            transform: rotate(-52deg);
+            transform-origin: bottom right;
+        }
+
+        .stripe-1 {
+            background: #dce75a;
+            bottom: 180px;
+        }
+
+        .stripe-2 {
+            background: #b6d84a;
+            bottom: 80px;
+        }
+
+        .stripe-3 {
+            background: #43c78d;
+            bottom: 0;
+        }
+
+        @media (min-width: 768px) {
+            .content-layout {
+                grid-template-columns: 1fr 220px;
+            }
+
+            .floor-buttons {
+                flex-direction: column;
+            }
+        }
+        .rooster-content {
+            display: none;
+            background-color: transparent;
+            border: none;
+            border-radius: 10px;
+            padding: 0;
+        }
+
+        .rooster-content.show {
+            display: block;
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .day-group {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .day-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #222;
+        }
+
+        .empty-day {
+            background: #ffffff;
+            border: 1px dashed #d8a1bc;
+            border-radius: 10px;
+            padding: 16px;
+            color: #555;
+            font-size: 17px;
+        }
+
+        .lesson-row {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 12px;
+            align-items: start;
+        }
+
+        .lesson-time {
+            font-size: 20px;
+            color: #444;
+            padding-top: 14px;
+            text-align: left;
+        }
+
+        .lesson-card {
+            background: #ea6d91;
+            border-radius: 10px;
+            padding: 14px 16px;
+            color: #111;
+            min-height: 110px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+        }
+
+        .lesson-card.highlight {
+            background: #ff3131;
+            color: #111;
+        }
+
+        .lesson-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .lesson-info {
+            font-size: 18px;
+            margin-bottom: 8px;
+            line-height: 1.3;
+        }
+
+        .lesson-info:last-child {
+            margin-bottom: 0;
+        }
+
+        .lesson-icon {
+            margin-right: 6px;
+        }
+
+        .current-time-line {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: #d5df4e;
+            border-radius: 999px;
+            z-index: 5;
+        }
+
+        .schedule-wrapper {
+            position: relative;
+        }
+
+        @media (max-width: 767px) {
+            .floor-btn {
+                width: 48px;
+                height: 48px;
+                font-size: 18px;
+            }
+
+            .map-section {
+                padding: 12px;
+            }
+
+            .map-viewer {
+                height: 280px;
+            }
+
+            .page-title {
+                font-size: 1.60em;
+            }
+
+            .search-box {
+                font-size: 16px;
+            }
+
+            .tab-btn {
+                font-size: 15px;
+            }
+
+            .lesson-row {
+                grid-template-columns: 60px 1fr;
+                gap: 10px;
+            }
+
+            .lesson-time {
+                font-size: 18px;
+                padding-top: 10px;
+            }
+
+            .lesson-card {
+                min-height: 95px;
+                padding: 12px 14px;
+            }
+
+            .lesson-title {
+                font-size: 20px;
+            }
+
+            .lesson-info {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 425px) {
+            main {
+                padding: 24px 10px 120px;
+            }
+
+            .content-layout {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .floor-section {
+                padding: 0;
+                width: 100%;
+            }
+
+            .floor-buttons {
+                flex-direction: row;
+                align-items: flex-start;
+                justify-content: flex-start;
+                flex-wrap: wrap;
+                gap: 10px;
+                width: 100%;
+                padding: 2px 0 0;
+            }
+
+            .map-section {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .map-viewer {
+                width: 100%;
+                height: 260px;
+            }
+
+            .floor-btn {
+                width: calc((100% - 40px) / 5);
+                max-width: 56px;
+                min-width: 48px;
+            }
+        }
+
+        .schedule-content.blur {
+            filter: blur(4px);
+        }
+
+        header.blur,
+        main.blur {
+            filter: blur(4px);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.25);
+            backdrop-filter: blur(4px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+        }
+
+        .modal-overlay.show {
+            display: flex;
+        }
+
+        .location-modal {
+            position: relative;
+            width: 90%;
+            max-width: 360px;
+            background: linear-gradient(
+                165deg,
+                #f48fbe 0%,
+                #f48fbe 56%,
+                #ef6b95 56%,
+                #ef6b95 80%,
+                #ff2e36 80%,
+                #ff2e36 100%
+            );
+            border: 1.5px solid #1f1f1f;
+            border-radius: 22px;
+            padding: 28px 20px 18px;
+            text-align: center;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.28);
+            overflow: hidden;
+        }
+
+        .location-modal h2 {
+            margin-bottom: 8px;
+            font-size: 2rem;
+            font-weight: 500;
+        }
+
+        .location-modal-label {
+            margin-bottom: 4px;
+            color: rgba(34, 34, 34, 0.72);
+            font-size: 1.05rem;
+        }
+
+        .location-modal-course {
+            margin-bottom: 18px;
+            color: rgba(34, 34, 34, 0.82);
+            font-size: 1.05rem;
+        }
+
+        .close-modal-btn {
+            position: absolute;
+            top: 12px;
+            left: 14px;
+            background: none;
+            border: none;
+            font-size: 36px;
+            cursor: pointer;
+            color: #111;
+            line-height: 1;
+        }
+
+        .location-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            width: min(180px, 100%);
+            margin: 0 auto 18px;
+            background: #fff;
+            border: 2px solid #4f4f4f;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        .location-option-btn,
+        .cancel-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+        }
+
+        .location-option-btn {
+            background: white;
+            color: #222;
+            font-size: 1.2rem;
+            line-height: 1.1;
+        }
+
+        .location-option-btn + .location-option-btn {
+            border-top: 2px solid #9a9a9a;
+        }
+
+        .location-option-btn:hover {
+            background: #f3f3f3;
+        }
+
+        .cancel-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 140px;
+            background: #fff;
+            color: #222;
+            border: 1.5px solid rgba(0, 0, 0, 0.18);
+            padding: 8px 18px;
+            font-size: 1.05rem;
+        }
+
+        .starter-guide-overlay {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.35);
+            backdrop-filter: blur(4px);
+            z-index: 2100;
+        }
+
+        .starter-guide-overlay.show {
+            display: flex;
+        }
+
+        .starter-guide-card {
+            position: relative;
+            width: min(420px, 100%);
+            background: #ffffff;
+            border: 1.5px solid rgba(17, 17, 17, 0.18);
+            border-radius: 24px;
+            padding: 28px 22px 20px;
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.22);
+        }
+
+        .starter-guide-close {
+            position: absolute;
+            top: 12px;
+            right: 14px;
+            background: none;
+            border: none;
+            font-size: 30px;
+            line-height: 1;
+            cursor: pointer;
+            color: #111;
+        }
+
+        .starter-guide-kicker {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #ef6d8f;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .starter-guide-card h2 {
+            margin-bottom: 10px;
+            font-size: 1.65rem;
+            line-height: 1.15;
+        }
+
+        .starter-guide-text {
+            margin-bottom: 18px;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #444;
+        }
+
+        .starter-guide-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .starter-guide-btn {
+            border: 1.5px solid rgba(17, 17, 17, 0.18);
+            border-radius: 12px;
+            background: #fff;
+            color: #222;
+            padding: 10px 16px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .starter-guide-btn.primary {
+            background: #ef6d8f;
+            color: #fff;
+            border-color: #ef6d8f;
+        }
+
+        body.high-contrast .starter-guide-card,
+        body.high-contrast .starter-guide-btn,
+        body.high-contrast .starter-guide-close {
+            background: #000 !important;
+            color: #fff !important;
+            border-color: #fff !important;
+        }
+
+        body.high-contrast .starter-guide-kicker,
+        body.high-contrast .starter-guide-text {
+            color: #fff !important;
+        }
+
+        body.high-contrast .starter-guide-btn.primary {
+            background: #fff !important;
+            color: #000 !important;
+        }
+
+        .search-error {
+            min-height: 20px;
+            font-size: 14px;
+            color: #ff4d4d;
+            margin-top: -8px;
+        }
+    

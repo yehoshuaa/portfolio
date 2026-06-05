@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="homeHeaderTitle">Home</title>
+    <link rel="stylesheet" href="../css/HomeStyle.css">
+</head>
+<body>
+    <div class="overlay" id="overlay"></div>
+
+    <nav class="side-menu" id="sideMenu">
+        <div class="menu-top">
+            <button class="close-menu-btn" id="closeMenuBtn" aria-label="Sluit menu">×</button>
+        </div>
+
+    <ul class="menu-list">
+      <li><a href="HomePagina.html" data-translate="homeMenuHome">Home</a></li>
+      <li><a href="HomePagina.html?tab=map" data-translate="homeMenuMap">Plattegrond</a></li>
+      <li><a href="HomePagina.html?tab=rooster" data-translate="homeMenuSchedule">Rooster</a></li>
+      <li><a href="profile.html" data-translate="homeMenuProfile">Profiel</a></li>
+    </ul>
+    </nav>
+
+    <header>
+        <div class="header-inner">
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Open menu">☰</button>
+            <h1 class="page-title" data-translate="homeHeaderTitle">Home</h1>
+        </div>
+    </header>
+
+    <main>
+        <section class="controls">
+            <input type="text" class="search-box" id="searchBox" data-translate-placeholder="homeSearchPlaceholder" placeholder="Zoeken...">
+            <div class="search-error" id="searchError"></div>
+
+            <div class="tab-row">
+                <button class="tab-btn active" id="mapTab" data-translate="homeMapTab">Map</button>
+                <button class="tab-btn" id="roosterTab" data-translate="homeScheduleTab">Rooster</button>
+            </div>
+
+            <select class="building-select" id="buildingSelect">
+                <option value="circus" data-translate="homeBuildingCircus">Circus</option>
+                <option value="landrost" data-translate="homeBuildingLandrost">Landrost</option>
+            </select>
+        </section>
+
+        <section class="map-content" id="mapContent">
+            <div class="content-layout">
+                <div class="map-section">
+                    <div class="map-toolbar">
+                        <button type="button" class="map-tool-btn" id="zoomOutBtn">−</button>
+                        <button type="button" class="map-tool-btn" id="resetMapBtn">Reset</button>
+                        <button type="button" class="map-tool-btn" id="zoomInBtn">+</button>
+                    </div>
+
+                    <div class="map-viewer" id="mapViewer">
+                        <img
+                            id="mapImage"
+                            class="map-image"
+                            src="assets/circus-1.png"
+                            alt="Plattegrond verdieping 1"
+                            draggable="false">
+                    </div>
+                </div>
+                            <aside class="floor-section">
+                    <div class="floor-buttons" id="floorButtons"></div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="rooster-content" id="roosterContent">
+            <div class="schedule-list" id="scheduleList"></div>
+        </section>
+
+        <div class="corner-decoration">
+            <div class="stripe stripe-1"></div>
+            <div class="stripe stripe-2"></div>
+            <div class="stripe stripe-3"></div>
+        </div>
+
+
+        <div class="modal-overlay" id="modalOverlay">
+            <div class="location-modal" id="locationModal">
+                <button class="close-modal-btn" id="closeModalBtn" aria-label="Sluiten">×</button>
+                <h2 data-translate="locationModalTitle">Kies je lokaal</h2>
+                <p class="location-modal-label" data-translate="locationModalLabel">Je volgende les:</p>
+                <p class="location-modal-course" id="locationModalCourse">📍 Onbekende les</p>
+                <div class="location-buttons" id="locationButtons"></div>
+                <button class="cancel-btn" id="cancelModalBtn" data-translate="cancelBtn">Annuleren</button>
+            </div>
+        </div>
+
+        <div class="starter-guide-overlay" id="starterGuideOverlay">
+            <div class="starter-guide-card">
+                <button class="starter-guide-close" id="starterGuideCloseBtn" type="button" aria-label="Sluiten">×</button>
+                <p class="starter-guide-kicker" data-translate="starterGuideKicker">Starter guide</p>
+                <h2 data-translate="starterGuideTitle">Bekijk je route direct vanuit je rooster</h2>
+                <p class="starter-guide-text" data-translate="starterGuideText">Klik op een les in het rooster en kies daarna je lokaal. Dan openen we meteen de route voor je.</p>
+                <div class="starter-guide-actions">
+                    <button class="starter-guide-btn primary" id="starterGuideRoosterBtn" type="button" data-translate="starterGuideOpenSchedule">Open rooster</button>
+                    <button class="starter-guide-btn" id="starterGuideSkipBtn" type="button" data-translate="starterGuideLater">Later</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script src="../js/language.js"></script>
+    <script src="../js/profile-preferences.js"></script>
+    <script src="../js/HomeScript.js"></script>
+    <script src="../js/lesson-notifications.js"></script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+:root {
+
+  /* ===== GEEL ===== */
+  --oranje: #F5A61A;
+  --goud: #ffcb05;
+  --geel: #fff578;
+
+  /* ===== ROOD ===== */
+  --rood: #ee3135;
+  --donkerroze: #f16682;
+  --lichtroze: #f287b7;
+
+  /* ===== GROEN ===== */
+  --donkergroen: #45b97c;
+  --appelgroen: #b1d249;
+  --lichtgroen: #d5e05b;
+
+  /* ===== BLAUW ===== */
+  --luchtblauw: #4594d3;
+  --blauw: #1ebcc5;
+  --lichtblauw: #84D0D9;
+
+  /* ===== ZWART / GRIJS ===== */
+  --zwart: #231f20;
+  --grijs1: #58595b;
+  --grijs2: #808184;
+  --grijs3: #a6a8ab;
+  --grijs4: #d0d2d3;
+}
+
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+* {
+  font-family: 'Roboto', sans-serif;
+}

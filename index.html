@@ -1,86 +1,78 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="nl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mijn Portfolio</title>
-
-<style>
-
-body{
-    margin:0;
-    font-family: "Segoe UI", Arial, sans-serif;
-    background:
-        linear-gradient(180deg, #1b2a1f 0%, #243c2a 100%);
-    color:#e8e8e8;
-}
-
-/* HEADER */
-
-header{
-    background:rgba(0,0,0,0.35);
-    backdrop-filter: blur(6px);
-    padding:22px;
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    border-bottom:1px solid rgba(255,255,255,0.08);
-}
-
-header a{
-    color:#e6e6e6;
-    text-decoration:none;
-    font-size:18px;
-    padding:10px 22px;
-    border-radius:8px;
-    transition:0.25s;
-}
-
-header a:hover{
-    background:#4f7a55;
-}
-
-/* HERO */
-
-.hero{
-    height:75vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    flex-direction:column;
-    text-align:center;
-    padding:40px;
-}
-
-.hero h1{
-    font-size:52px;
-    font-weight:600;
-    margin-bottom:12px;
-    letter-spacing:1px;
-}
-
-.hero p{
-    font-size:20px;
-    color:#cfd8cf;
-    max-width:600px;
-    line-height:1.6;
-}
-
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Home · Jozua Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="Portfolio User Interaction Design van Jozua Breemes.">
 </head>
-
 <body>
-
-<header>
-    <a href="projecten.html">Projecten</a>
-    <a href="vaardigheden.html">Vaardigheden</a>
-    <a href="overmij.html">Over mij</a>
+<header class="site-header">
+  <nav class="nav">
+    <a class="logo" href="index.html"><span class="logo-mark"></span><span>Jozua Portfolio</span></a>
+    <button class="menu-button" type="button">Menu</button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="projecten.html">Projecten</a>
+      <a href="vaardigheden.html">Vaardigheden</a>
+      <a href="over-mij.html">Over mij</a>
+    </div>
+  </nav>
 </header>
-
+<main>
 <section class="hero">
-    <h1>Mijn Portfolio</h1>
-    <p>Software developer in opleiding</p>
+  <div class="hero-text">
+    <div class="eyebrow">HBO-ICT · User Interaction Design</div>
+    <h1>Portfolio als design journey.</h1>
+    <p>Dit portfolio toont mijn ontwikkeling binnen het semester User Interaction Design. In plaats van losse datapunten presenteer ik mijn werk per cyclus: context, proces, mijn bijdrage, resultaat en bewijsstukken.</p>
+    <div class="button-row">
+      <a class="btn primary" href="projecten.html">Bekijk projecten</a>
+      <a class="btn" href="vaardigheden.html">Bekijk vaardigheden</a>
+    </div>
+  </div>
+  <aside class="hero-panel">
+    <div class="eyebrow">Structuur</div>
+    <div class="number">5</div>
+    <h3>Cycles</h3>
+    <p>Escape Room, Mobile App, Hackathon, Externe Opdrachtgever en het individuele AR-project.</p>
+  </aside>
 </section>
 
+<section class="section">
+  <div class="section-header">
+    <div class="eyebrow">Overzicht</div>
+    <h2>Van groepswerk naar individueel eindproject</h2>
+    <p>De eerste vier cycles laten vooral samenwerking, onderzoek en ontwerp zien. Cyclus 5 krijgt extra aandacht, omdat dit mijn individuele project is en mijn eigen keuzes dus duidelijker zichtbaar moeten zijn.</p>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item"><strong>Cyclus 1</strong><div><h3>Escape Room</h3><p>Fysiek/digitaal prototype, playtests, peer feedback en design journey.</p></div></div>
+    <div class="timeline-item"><strong>Cyclus 2</strong><div><h3>Mobile App</h3><p>DP2 t/m DP5: benchmark, design brief, wireframes en eindprototype.</p></div></div>
+    <div class="timeline-item"><strong>Cyclus 3</strong><div><h3>Campus Navigatie</h3><p>DP6: hackathon met high-fidelity prototype en werkende frontend demo.</p></div></div>
+    <div class="timeline-item"><strong>Cyclus 4</strong><div><h3>Externe Opdrachtgever</h3><p>DP7 t/m DP10: professioneel UX-traject, nog niet volledig afgerond.</p></div></div>
+    <div class="timeline-item"><strong>Cyclus 5</strong><div><h3>Individueel AR-project</h3><p>DP11 + DP12: Tarzan-project, individuele UX/UI, frontend, ethiek en reflectie.</p></div></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-header">
+    <div class="eyebrow">Werkwijze</div>
+    <h2>Geen documentendump</h2>
+    <p>Documenten staan in de site als bewijsstukken. De pagina's zelf leggen uit wat het probleem was, wat ik heb gedaan en wat ik heb geleerd.</p>
+  </div>
+  <div class="grid three">
+    <div class="stat-card"><h3>Context</h3><p>Elke cyclus begint met de opdracht en het probleem.</p></div>
+    <div class="stat-card"><h3>Proces</h3><p>Onderzoek, ideevorming, ontwerp, test en iteratie worden kort uitgelegd.</p></div>
+    <div class="stat-card"><h3>Bewijs</h3><p>PDF's, screenshots, Figma-links en demo's worden per cyclus gekoppeld.</p></div>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="footer-inner">
+    <span>© <span data-year></span> Jozua Breemes</span>
+    <span>User Interaction Design portfolio</span>
+  </div>
+</footer>
+<script src="script.js"></script>
 </body>
 </html>

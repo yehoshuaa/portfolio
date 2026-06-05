@@ -1,0 +1,343 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+html,
+body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body.large-text h1,
+body.large-text h2,
+body.large-text h3,
+body.large-text p,
+body.large-text span,
+body.large-text button,
+body.large-text label,
+body.large-text input,
+body.large-text select {
+    font-size: 1.1em;
+}
+
+body.high-contrast {
+    background: #000;
+    color: #fff;
+}
+
+body.high-contrast .profile-screen {
+    background: #000 !important;
+}
+
+body.high-contrast .top-area,
+body.high-contrast .logout,
+body.high-contrast .popup-content,
+body.high-contrast .dropdown,
+body.high-contrast .save {
+    background: #000;
+    color: #fff;
+}
+
+body.high-contrast .row,
+body.high-contrast .profile-card,
+body.high-contrast .dropdown-item,
+body.high-contrast .popup-content input,
+body.high-contrast .language-select,
+body.high-contrast .logout,
+body.high-contrast .save {
+    border-color: #fff;
+    color: #fff;
+}
+
+body.high-contrast .back-btn,
+body.high-contrast .profile-info p,
+body.high-contrast .profile-info h2,
+body.high-contrast .settings-group h3,
+body.high-contrast .top-area h1,
+body.high-contrast .link-btn,
+body.high-contrast .dropdown-item,
+body.high-contrast span {
+    color: #fff;
+}
+
+body.high-contrast .slider {
+    background: #000;
+    border: 1px solid #fff;
+}
+
+body.high-contrast .slider::before {
+    background: #fff;
+}
+
+body.high-contrast .switch input:checked + .slider {
+    background: #fff;
+    border: 1px solid #fff;
+}
+
+body.high-contrast .switch input:checked + .slider::before {
+    background: #000;
+}
+
+body.high-contrast .dropdown-item:hover,
+body.high-contrast .save:hover,
+body.high-contrast .logout:hover {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+span {
+    font-size: 14px;
+}
+
+
+
+/* Hele pagina */
+.profile-screen {
+    min-height: 100vh;
+    width: 100%;
+background: 
+linear-gradient(210deg, var(--lichtroze) 0 55%, transparent 55% 100%),
+linear-gradient(210deg, var(--donkerroze) 0 75%, transparent 75% 100%),
+linear-gradient(210deg, var(--rood) 100%);
+}
+
+/* Witte bovenkant */
+.top-area {
+    height: 100px;
+    background: #efefef;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.top-area h1 {
+    font-size: 22px;
+    font-weight: 400;
+    color: var(--zwart);
+}
+
+.back-btn {
+    position: absolute;
+    left: 20px;
+    font-size: 40px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+/* Content */
+.content-area {
+    max-width: 100%;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Profiel */
+.profile-card {
+    display: flex;
+    gap: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+}
+
+.profile-info h2 {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.profile-info p {
+    font-size: 13px;
+    color: var(--zwart);
+}
+
+.link-btn {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    font-weight: 700;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+/* Groepen */
+.settings-group {
+    margin-top: 10px;
+}
+
+.settings-group h3 {
+    font-size: 16px;
+    margin: 15px 0 5px;
+}
+
+/* Rijen */
+.row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.row-link {
+    cursor: pointer;
+}
+
+.language-row {
+    gap: 16px;
+}
+
+.language-select {
+    min-width: 72px;
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid var(--grijs2);
+    background: #ffffff;
+    color: #111111 !important;
+    opacity: 1;
+    appearance: auto;
+    -webkit-text-fill-color: #111111;
+}
+
+.language-select option {
+    color: #111;
+    background: #fff;
+}
+
+body.high-contrast .language-select option {
+    color: #fff;
+    background: #000;
+}
+
+
+
+/* Switch */
+.switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+}
+
+.switch input {
+    opacity: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+    background: var(--grijs3);
+    border-radius: 20px;
+    border: 1px solid var(--grijs1);
+}
+
+.slider::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+    transition: 0.2s;
+
+}
+
+.switch input:checked+.slider {
+    background: var(--luchtblauw);
+    border: 1px solid var(--luchtblauw);
+}
+
+.switch input:checked+.slider::before {
+    transform: translateX(18px);
+}
+
+/* Uitloggen knop */
+.logout {
+    width: 100%;
+    padding: 12px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 20px;
+    background: #efefef;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background: white;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.popup-content input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid var(--grijs3);
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.popup-buttons {
+    display: flex;
+    justify-content: center; /* dit zet de knop in het midden */
+    margin-top: 15px;
+}
+
+.popup-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.save {
+    background: var(--luchtblauw);
+    color: white;
+}
+
+.dropdown {
+  display: none;
+  background: rgba(255,255,255,0.9);
+  border-radius: 10px;
+  margin: 5px 0 10px 0;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  padding: 10px;
+  border-bottom: 1px solid var(--grijs4);
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: var(--lichtblauw);
+}
