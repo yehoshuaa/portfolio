@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login - Windesheim</title>
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-panel">
+      <div class="left-stripes">
+        <div class="stripe stripe-1"></div>
+        <div class="stripe stripe-2"></div>
+        <div class="stripe stripe-3"></div>
+      </div>
+
+      <div class="login-content">
+        <img src="images/logo.png" alt="Windesheim logo" class="logo" />
+
+        <h1 data-translate="loginTitle">Login</h1>
+
+        <form class="login-form" id="loginForm">
+          <label for="email" data-translate="emailLabel">E-mail adress</label>
+          <input type="email" id="email" name="email" />
+
+          <label for="password" data-translate="passwordLabel">Wachtwoord</label>
+          <input type="password" id="password" name="password" />
+
+          <a href="#" class="forgot-link" id="forgotPasswordLink" data-translate="forgotPasswordLink">
+            Wachtwoord vergeten
+          </a>
+
+          <div class="remember-row">
+            <input type="checkbox" id="remember" name="remember" />
+            <label for="remember" data-translate="rememberLabel">Onthoud mij</label>
+          </div>
+
+          <button type="submit" class="login-btn" data-translate="loginButton">Inloggen</button>
+        </form>
+      </div>
+
+      <button class="accessibility-btn" id="accessibilityOpenBtn" aria-label="Toegankelijkheid">
+        <span class="person-icon">🧍</span>
+      </button>
+
+      <div class="accessibility-modal-overlay" id="accessibilityModal">
+        <div class="accessibility-modal">
+          <h2 data-translate="accessibilityTitle">Toegankelijkheid</h2>
+
+          <div class="accessibility-option">
+            <div class="option-text">
+              <h3 data-translate="largeTextTitle">Grote tekst</h3>
+              <p data-translate="largeTextDesc">→ Vergroot alle tekst</p>
+            </div>
+            <input type="checkbox" id="largeTextToggle" />
+          </div>
+
+          <div class="accessibility-option">
+            <div class="option-text">
+              <h3 data-translate="contrastTitle">Hoog contrast</h3>
+              <p data-translate="contrastDesc">→ Betere zichtbaarheid</p>
+            </div>
+            <input type="checkbox" id="contrastToggle" />
+          </div>
+
+          <div class="accessibility-option">
+            <div class="option-text">
+              <h3 data-translate="wheelchairTitle">Rolstoelroute</h3>
+              <p data-translate="wheelchairDesc">→ Vermijd trappen</p>
+            </div>
+            <input type="checkbox" id="wheelchairToggle" />
+          </div>
+
+          <div class="language-row">
+            <label for="languageSelect" data-translate="languageLabel">Taal/Language</label>
+            <select id="languageSelect">
+              <option value="nl">NL</option>
+              <option value="en">EN</option>
+            </select>
+          </div>
+
+          <div class="modal-buttons">
+            <button type="button" class="modal-btn reset-btn" id="resetBtn" data-translate="resetBtn">
+              Reset
+            </button>
+            <button type="button" class="modal-btn save-btn" id="saveBtn" data-translate="saveBtn">
+              Opslaan
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="auth-modal-overlay" id="forgotModal">
+        <div class="auth-modal forgot-password-modal">
+          <button class="close-auth-modal" id="closeForgotModal" aria-label="Sluiten">&times;</button>
+
+          <h2 data-translate="forgotModalTitle">Wachtwoord vergeten</h2>
+          <p data-translate="forgotModalDesc">vul uw mail in en krijg een tijdelijk wachtwoord</p>
+
+          <form id="forgotForm">
+            <label for="forgotEmail" data-translate="forgotEmailLabel">E-mail adress</label>
+            <input type="email" id="forgotEmail" name="forgotEmail" />
+            <button type="submit" class="auth-action-btn" data-translate="forgotSendBtn">Verzenden</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="auth-modal-overlay" id="errorModal">
+        <div class="auth-modal error-login-modal">
+          <button class="close-auth-modal" id="closeErrorModal" aria-label="Sluiten">&times;</button>
+
+          <h2 data-translate="errorModalTitle">Inloggen mislukt</h2>
+          <p data-translate="errorModalDesc">Uw gebruikersnaam of wachtwoord is onjuist.</p>
+          <button type="button" class="auth-action-btn" id="errorOkBtn" data-translate="errorOkBtn">OK</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="/js/language.js"></script>
+  <script src="/js/profile-preferences.js"></script>
+  <script src="/js/script.js"></script>
+  <script src="/js/lesson-notifications.js"></script>
+</body>
+</html>

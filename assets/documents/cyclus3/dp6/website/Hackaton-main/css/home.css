@@ -1,0 +1,643 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #ececec;
+  color: #111;
+}
+
+body.large-text h1,
+body.large-text h2,
+body.large-text h3,
+body.large-text p,
+body.large-text span,
+body.large-text button,
+body.large-text label,
+body.large-text input,
+body.large-text select,
+body.large-text a {
+  font-size: 1.08em;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* BASIS */
+.login-page,
+.home-page {
+  position: relative;
+  width: 100vw;
+  width: 100dvw;
+  height: 100vh;
+  height: 100dvh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+.login-panel,
+.home-panel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  overflow: hidden;
+}
+
+/* STREPEN */
+.left-stripes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 180px;
+  height: 100%;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.stripe {
+  position: absolute;
+  top: -60px;
+  width: 60px;
+  height: 140%;
+  transform: rotate(18deg);
+  transform-origin: top left;
+}
+
+.stripe-1 {
+  left: 0;
+  background: #41c391;
+}
+
+.stripe-2 {
+  left: 60px;
+  background: #b4cf45;
+}
+
+.stripe-3 {
+  left: 120px;
+  background: #e6ea98;
+}
+
+/* LOGIN */
+.login-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.logo {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+  margin-bottom: 24px;
+}
+
+.login-content h1 {
+  font-size: clamp(18px, 4vw, 32px);
+  font-weight: 400;
+  margin-bottom: 32px;
+}
+
+.login-form {
+  width: min(100%, 320px);
+}
+
+.login-form label {
+  display: block;
+  font-size: clamp(10px, 1.4vw, 13px);
+  margin-bottom: 6px;
+  color: #222;
+}
+
+.login-form input[type="email"],
+.login-form input[type="password"] {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #666;
+  border-radius: 4px;
+  background: #fff;
+  margin-bottom: 16px;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+}
+
+.forgot-link {
+  display: inline-block;
+  font-size: 12px;
+  color: #5ca4ea;
+  margin-top: -2px;
+  margin-bottom: 14px;
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.remember-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.remember-row input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+}
+
+.remember-row label {
+  margin: 0;
+  font-size: 13px;
+}
+
+.login-btn {
+  display: block;
+  width: 100%;
+  height: 38px;
+  background: #b4cf45;
+  color: #111;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  filter: brightness(0.97);
+}
+
+/* POPPETJE */
+.accessibility-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  width: 52px;
+  height: 52px;
+  border: none;
+  border-radius: 50%;
+  background: #b4cf45;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 50;
+}
+
+.person-icon {
+  font-size: 22px;
+  line-height: 1;
+  pointer-events: none;
+}
+
+/* ACCESSIBILITY POPUP */
+.accessibility-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.18);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.accessibility-modal-overlay.show {
+  display: flex;
+}
+
+.accessibility-modal {
+  width: min(90vw, 420px);
+  background: #ef6a89;
+  padding: 28px 26px 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+.accessibility-modal h2 {
+  text-align: center;
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+  margin-bottom: 34px;
+}
+
+.accessibility-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 26px;
+  gap: 20px;
+}
+
+.option-text h3 {
+  font-size: clamp(18px, 2.6vw, 24px);
+  font-weight: 400;
+  margin-bottom: 4px;
+}
+
+.option-text p {
+  font-size: clamp(16px, 2.3vw, 20px);
+  color: #111;
+}
+
+.accessibility-option input[type="checkbox"] {
+  width: 32px;
+  height: 32px;
+  accent-color: #ffffff;
+  flex-shrink: 0;
+}
+
+.language-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 8px 0 38px;
+  gap: 20px;
+}
+
+.language-row label {
+  font-size: clamp(18px, 2.4vw, 22px);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.language-row select {
+  width: 82px;
+  height: 38px;
+  border: 1px solid #666;
+  background: #f2f2f2;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.modal-btn {
+  min-width: 132px;
+  height: 42px;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.reset-btn,
+.save-btn {
+  background: #f49bb5;
+  color: #111;
+}
+
+/* AUTH POPUPS */
+.auth-modal-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 120;
+}
+
+.auth-modal-overlay.show {
+  display: flex;
+}
+
+.auth-modal {
+  position: relative;
+  width: min(92vw, 620px);
+  background: #f1f1f1;
+  border-top: 3px solid #222;
+  border-bottom: 3px solid #222;
+  padding: 18px 28px 26px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.close-auth-modal {
+  position: absolute;
+  top: 8px;
+  right: 14px;
+  background: transparent;
+  border: none;
+  font-size: 34px;
+  line-height: 1;
+  color: #222;
+  cursor: pointer;
+}
+
+.auth-modal h2 {
+  font-size: clamp(22px, 3vw, 30px);
+  font-weight: 400;
+  margin-bottom: 6px;
+}
+
+.auth-modal p {
+  font-size: clamp(16px, 2vw, 20px);
+  color: #111;
+  margin-bottom: 28px;
+}
+
+.auth-modal form {
+  width: min(100%, 360px);
+  margin: 0 auto;
+  text-align: left;
+}
+
+.auth-modal form label {
+  display: block;
+  font-size: clamp(14px, 1.7vw, 18px);
+  margin-bottom: 8px;
+  color: #111;
+}
+
+.auth-modal form input {
+  width: 100%;
+  height: 34px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background: #fff;
+  margin-bottom: 22px;
+  padding: 0 10px;
+  font-size: 15px;
+  outline: none;
+}
+
+.auth-action-btn {
+  display: block;
+  margin: 0 auto;
+  min-width: 170px;
+  height: 38px;
+  border: none;
+  border-radius: 4px;
+  background: #b4cf45;
+  color: #111;
+  font-size: clamp(16px, 1.8vw, 18px);
+  cursor: pointer;
+}
+
+.error-login-modal {
+  width: min(90vw, 460px);
+  padding-top: 28px;
+}
+
+.error-login-modal p {
+  margin-bottom: 24px;
+}
+
+/* HOME */
+.home-content {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.home-content h1 {
+  font-size: clamp(28px, 5vw, 52px);
+  font-weight: 400;
+  color: #111;
+}
+
+/* GROTE TEKST */
+.large-text {
+  font-size: 1.08em;
+}
+
+.large-text h1,
+.large-text h2,
+.large-text h3,
+.large-text p,
+.large-text label,
+.large-text a,
+.large-text button,
+.large-text select,
+.large-text input {
+  font-size: 1.08em !important;
+}
+
+/* HOOG CONTRAST */
+.high-contrast,
+.high-contrast body,
+.high-contrast .login-page,
+.high-contrast .login-panel,
+.high-contrast .home-page,
+.high-contrast .home-panel {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.high-contrast h1,
+.high-contrast h2,
+.high-contrast h3,
+.high-contrast p,
+.high-contrast label,
+.high-contrast span,
+.high-contrast a {
+  color: #000 !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast a {
+  color: #0000ee !important;
+  text-decoration: underline;
+}
+
+.high-contrast input,
+.high-contrast select {
+  background: #fff !important;
+  color: #000 !important;
+  border: 2px solid #000 !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast input::placeholder {
+  color: #333 !important;
+}
+
+.high-contrast button {
+  background: #000 !important;
+  color: #fff !important;
+  border: 2px solid #000 !important;
+  font-weight: 700 !important;
+}
+
+.high-contrast .accessibility-btn {
+  background: #000 !important;
+  color: #fff !important;
+}
+
+.high-contrast .left-stripes {
+  display: block !important;
+}
+
+.high-contrast .stripe-1 {
+  background: #2e9f70 !important;
+}
+
+.high-contrast .stripe-2 {
+  background: #8fae2f !important;
+}
+
+.high-contrast .stripe-3 {
+  background: #c9cf5f !important;
+}
+
+.high-contrast .accessibility-modal,
+.high-contrast .auth-modal {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+.high-contrast .option-text h3,
+.high-contrast .option-text p {
+  color: #000 !important;
+  font-weight: 700 !important;
+}
+
+/* MOBIEL */
+@media (max-width: 600px) {
+  .left-stripes {
+    width: 180px;
+    height: 100%;
+  }
+
+  .stripe {
+    width: 60px;
+    height: 140%;
+    top: -40px;
+  }
+
+  .stripe-1 {
+    left: 0;
+  }
+
+  .stripe-2 {
+    left: 60px;
+  }
+
+  .stripe-3 {
+    left: 120px;
+  }
+
+  .login-form {
+    width: min(100%, 240px);
+  }
+
+  .logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .login-content h1 {
+    font-size: 20px;
+  }
+
+  .login-form input[type="email"],
+  .login-form input[type="password"] {
+    height: 32px;
+    font-size: 13px;
+  }
+
+  .login-btn {
+    height: 34px;
+    font-size: 13px;
+  }
+
+  .accessibility-btn {
+    right: 18px;
+    bottom: 18px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .person-icon {
+    font-size: 19px;
+  }
+
+  .accessibility-modal {
+    width: 92vw;
+    padding: 24px 18px 18px;
+  }
+
+  .modal-btn {
+    min-width: 110px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .accessibility-option input[type="checkbox"] {
+    width: 28px;
+    height: 28px;
+  }
+
+  .auth-modal {
+    width: 100%;
+    max-width: 100%;
+    border-left: none;
+    border-right: none;
+    border-top: 3px solid #222;
+    border-bottom: 3px solid #222;
+    border-radius: 0;
+    padding: 16px 18px 22px;
+  }
+
+  .close-auth-modal {
+    top: 8px;
+    right: 12px;
+    font-size: 30px;
+  }
+
+  .auth-modal h2 {
+    font-size: 23px;
+  }
+
+  .auth-modal p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .auth-modal form {
+    width: min(100%, 280px);
+  }
+
+  .auth-modal form label {
+    font-size: 13px;
+  }
+
+  .auth-modal form input {
+    height: 32px;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .auth-action-btn {
+    min-width: 140px;
+    height: 36px;
+    font-size: 16px;
+  }
+}

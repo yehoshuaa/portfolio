@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-translate="profileTitle">Profiel</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/profile.css">
+</head>
+
+<body>
+
+    <main class="profile-screen">
+
+        <div class="top-area">
+            <button class="back-btn" type="button" onclick="history.back()">‹</button>
+            <h1 data-translate="profileTitle">Profiel</h1>
+        </div>
+
+        <div class="content-area">
+            <div class="profile-card">
+                <img src="https://i.pravatar.cc/100?img=12" alt="Profielfoto" class="avatar">
+
+                <div class="profile-info">
+                    <h2>Jeremy de Vries</h2>
+                    <p>s1111111@student.windesheim.nl</p>
+                    <p>+31 6 1234 5678</p>
+                    <button class="link-btn" id="openPopupBtn" type="button" data-translate="profileChangePassword">Wachtwoord veranderen</button>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3 data-translate="profilePreferences">Voorkeuren</h3>
+
+                <div class="row">
+                    <span data-translate="profileNotifications">Meldingen</span>
+                    <label class="switch">
+                        <input type="checkbox" id="notificationsToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row row-link" id="locationRow">
+                    <span data-translate="profileLocationPreference">Locatievoorkeur</span>
+                    <span id="selectedLocation">Circus ›</span>
+                </div>
+
+                <div class="dropdown" id="locationDropdown">
+                    <div class="dropdown-item" data-location="Circus">'t Circus</div>
+                    <div class="dropdown-item" data-location="De aardbei">De aardbei</div>
+                    <div class="dropdown-item" data-location="Landdrost">Landdrost</div>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3 data-translate="profileNotificationSettings">Melding instellingen</h3>
+
+                <div class="row">
+                    <span data-translate="profileLessonSoon">Les begint binnenkort</span>
+                    <label class="switch">
+                        <input type="checkbox" id="lessonReminderToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <span data-translate="profileRouteUpdates">Route-updates</span>
+                    <label class="switch">
+                        <input type="checkbox" id="routeUpdatesToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <span data-translate="profileCrowdAlerts">Drukte meldingen</span>
+                    <label class="switch">
+                        <input type="checkbox" id="crowdAlertsToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3 data-translate="profileAccessibility">Toegankelijkheid</h3>
+
+                <div class="row">
+                    <span data-translate="profileLargeText">Grote tekst</span>
+                    <label class="switch">
+                        <input type="checkbox" id="largeTextToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <span data-translate="profileHighContrast">Hoog contrast</span>
+                    <label class="switch">
+                        <input type="checkbox" id="contrastToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row">
+                    <span data-translate="profileWheelchair">Rolstoelroute</span>
+                    <label class="switch">
+                        <input type="checkbox" id="wheelchairToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+
+                <div class="row row-link language-row">
+                    <span data-translate="profileLanguage">Taal</span>
+                    <select id="profileLanguageSelect" class="language-select">
+                        <option value="nl">NL</option>
+                        <option value="en">EN</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="logout" id="logoutBtn" type="button" data-translate="profileLogout">Uitloggen ›</button>
+        </div>
+
+    </main>
+
+    <div id="passwordPopup" class="popup">
+        <div class="popup-content">
+            <h2 data-translate="profilePasswordTitle">Wachtwoord veranderen</h2>
+
+            <label for="newPassword" data-translate="profileNewPassword">Nieuw wachtwoord</label>
+            <input type="password" id="newPassword">
+
+            <label for="repeatPassword" data-translate="profileRepeatPassword">Herhaal nieuw wachtwoord</label>
+            <input type="password" id="repeatPassword">
+
+            <div class="popup-buttons">
+                <button id="saveBtn" class="save" type="button">Opslaan</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/language.js"></script>
+    <script src="../js/profile-preferences.js"></script>
+    <script src="../js/profile.js"></script>
+    <script src="../js/lesson-notifications.js"></script>
+</body>
+
+</html>
